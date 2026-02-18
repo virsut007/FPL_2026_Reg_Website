@@ -135,8 +135,8 @@
 
   h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 12vw, 80px);
-    line-height: 0.9;
+    font-size: clamp(38px, 11vw, 80px);
+    line-height: 1.0;
     letter-spacing: 3px;
     background: linear-gradient(135deg, #FFD700 0%, #fff8dc 40%, #FFD700 70%, #b8860b 100%);
     -webkit-background-clip: text;
@@ -400,12 +400,16 @@
   }
 
   .contact-number {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 0.5px;
-  }
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: right;
+  margin-left: 12px;
+}
 
   .contact-placeholder {
     font-size: 13px;
@@ -608,7 +612,7 @@
         <div class="contact-name">Nachiket Garg</div>
         <div class="contact-role">Sports Secretary </div>
       </div>
-      <div class="contact-placeholder">+91 97694 71605</div>
+      <div class="contact-number">+91 97694 71605</div>
     </div>
 
     <div class="contact-row">
@@ -616,7 +620,7 @@
         <div class="contact-name">Himnish Taneja</div>
         <div class="contact-role">Executive Committee, Sports Union  (2024 batch)</div>
       </div>
-      <div class="contact-placeholder">+91 70428 13111</div>
+      <div class="contact-number">+91 70428 13111</div>
     </div>
 
     <div class="section-label" style="animation-delay: 0.85s;">For any queries regarding registration kindly contact</div>
@@ -626,7 +630,7 @@
         <div class="contact-name">Viren Suthar</div>
         <div class="contact-role">Executive Committee, Sports Union  (2025 batch)</div>
       </div>
-      <div class="contact-placeholder">+91 9820596073</div>
+      <div class="contact-number">+91 9820596073</div>
     </div>
 
   </div>
