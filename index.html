@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freshers' Premier League 2026 — BITS Pilani</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #FFD700;
+    --gold-dim: #c9a800;
+    --red: #FF2D2D;
+    --dark: #0a0a0f;
+    --darker: #050508;
+    --card: #111118;
+    --border: #1e1e2e;
+    --text: #e8e8f0;
+    --muted: #7a7a96;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Animated background grid */
+  body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+  /* Top glow */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255,215,0,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- HEADER ---- */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .logo-ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    padding: 6px;
+    margin: 0 auto 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(255,215,0,0.2), 0 0 60px rgba(255,215,0,0.06);
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
+
+  .logo-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #fff;
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+  .logo-placeholder {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    line-height: 1.3;
+    border: 1px solid rgba(255,215,0,0.3);
+  }
+
+  .logo-placeholder span { font-size: 22px; display: block; margin-bottom: 2px; }
+
+  @keyframes pulse-ring {
+    0%, 100% { box-shadow: 0 0 30px rgba(255,215,0,0.2), 0 0 60px rgba(255,215,0,0.06); }
+    50% { box-shadow: 0 0 40px rgba(255,215,0,0.35), 0 0 80px rgba(255,215,0,0.12); }
+  }
+
+  .org-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.85;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 80px);
+    line-height: 0.9;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #FFD700 0%, #fff8dc 40%, #FFD700 70%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+
+  .year-badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 3px 12px;
+    margin-bottom: 18px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+
+  /* ---- DESCRIPTION CARD ---- */
+  .desc-card {
+    background: linear-gradient(135deg, rgba(255,215,0,0.06) 0%, rgba(255,215,0,0.02) 100%);
+    border: 1px solid rgba(255,215,0,0.15);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.8s 0.2s ease both;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 15px;
+    color: #c8c8d8;
+    font-weight: 300;
+  }
+
+  .desc-card strong { color: var(--gold); font-weight: 600; }
+
+  /* ---- INFO STRIP ---- */
+  .info-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .info-tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .info-tile .tile-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .info-tile .tile-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .info-tile.urgent { border-color: rgba(255,45,45,0.3); }
+  .info-tile.urgent::before { background: var(--red); opacity: 1; }
+  .info-tile.urgent .tile-label { color: rgba(255,100,100,0.7); }
+  .info-tile.urgent .tile-value { color: #ff9090; }
+
+  /* ---- SECTION LABEL ---- */
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ---- SPORT LINKS ---- */
+  .links-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sport-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: var(--text);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .sport-link:hover {
+    border-color: rgba(255,215,0,0.4);
+    background: linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0.02) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px rgba(255,215,0,0.08);
+  }
+
+  .sport-link::after {
+    content: '→';
+    position: absolute;
+    right: 20px;
+    font-size: 18px;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.25s ease;
+  }
+
+  .sport-link:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .sport-emoji {
+    font-size: 26px;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.3));
+  }
+
+  .sport-info { flex: 1; }
+  .sport-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .sport-sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .new-tag {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-right: 30px;
+    box-shadow: 0 0 12px rgba(124,58,237,0.4);
+    animation: glow-purple 2s ease-in-out infinite;
+  }
+
+  @keyframes glow-purple {
+    0%, 100% { box-shadow: 0 0 12px rgba(124,58,237,0.4); }
+    50% { box-shadow: 0 0 20px rgba(124,58,237,0.7); }
+  }
+
+  /* staggered animation delays */
+  .links-stack .sport-link:nth-child(1) { animation-delay: 0.4s; }
+  .links-stack .sport-link:nth-child(2) { animation-delay: 0.45s; }
+  .links-stack .sport-link:nth-child(3) { animation-delay: 0.5s; }
+  .links-stack .sport-link:nth-child(4) { animation-delay: 0.55s; }
+  .links-stack .sport-link:nth-child(5) { animation-delay: 0.6s; }
+  .links-stack .sport-link:nth-child(6) { animation-delay: 0.65s; }
+  .links-stack .sport-link:nth-child(7) { animation-delay: 0.7s; }
+  .links-stack .sport-link:nth-child(8) { animation-delay: 0.75s; }
+  .links-stack .sport-link:nth-child(9) { animation-delay: 0.8s; }
+
+  .esports-divider {
+    text-align: center;
+    padding: 10px 0 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #a78bfa;
+    text-shadow: 0 0 12px rgba(167,139,250,0.5);
+    animation: fadeUp 0.6s 0.78s ease both;
+  }
+
+  /* ---- CONTACTS ---- */
+  .contacts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: fadeUp 0.8s 0.9s ease both;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    transition: border-color 0.2s;
+  }
+
+  .contact-row:hover { border-color: rgba(255,215,0,0.2); }
+
+  .contact-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .contact-role {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .contact-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+
+  .contact-placeholder {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s 1s ease both;
+  }
+
+  .footer-org {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .footer-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- SCROLLBAR ---- */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--darker); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.2); border-radius: 3px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-ring">
+      
+      <div class><img src= "/Users/virensuthar/Downloads/sport logo"></div>
+        
+      
+    </div>
+    <div class="org-label">Sports Union - BITS Pilani, Pilani Campus</div>
+    <h1>Freshers'<br>Premier<br>League</h1>
+    <div class="year-badge">FPL 2026</div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="desc-card">
+    Welcome to <strong>Freshers' Premier League</strong> — the most anticipated sporting debut for the Class of 2025. 
+    Represent your wing, forge rivalries, and make your mark on campus. 
+    Organized by the <strong>Sports Union's Executive Committee</strong>, FPL is your first chance 
+    to compete, connect, and win across 9 disciplines. Let the games begin.
+  </div>
+
+  <!-- INFO TILES -->
+  <div class="info-strip">
+    <div class="info-tile">
+      <div class="tile-label">📅 Event Dates</div>
+      <div class="tile-value">27 Feb (5 PM onwards)<br>28 Feb and 1 March</div>
+    </div>
+    <div class="info-tile urgent">
+      <div class="tile-label">⏰ Form Deadline</div>
+      <div class="tile-value">25 Feb, Wed<br>5:00 PM sharp</div>
+    </div>
+    <div class="info-tile" style="grid-column: 1 / -1;">
+      <div class="tile-label">🔄 Reschedule Requests</div>
+      <div class="tile-value">Entertained only till 27 Feb, 3:00 PM — No exceptions after this.</div>
+    </div>
+  </div>
+
+  <!-- REGISTRATION LINKS -->
+  <div class="section-label">Register Now</div>
+  <div class="links-stack">
+
+    <a class="sport-link" href="https://forms.gle/P9DNpZxRvyxueYaw5">
+      <div class="sport-emoji">🏃</div>
+      <div class="sport-info">
+        <div class="sport-name">Athletics</div>
+        <div class="sport-sub">Track & Field events</div>
+      </div>
+    </a>
+
+    <a class="sport-link" href="https://forms.gle/n5W3mqDnrr1Hktyz8" >
+      <div class="sport-emoji">🏸</div>
+      <div class="sport-info">
+        <div class="sport-name">Badminton</div>
+        <div class="sport-sub">Singles & Doubles</div>
+      </div>
+    </a>
+
+    <a class="sport-link" href="https://forms.gle/gguwgmyTHAjmjKRB8">
+      <div class="sport-emoji">🏀</div>
+      <div class="sport-info">
+        <div class="sport-name">Basketball</div>
+        <div class="sport-sub">Team registration</div>
+      </div>
+    </a>
+
+    <a class="sport-link" href="https://forms.gle/4pNPR46QSR1ZruZV9">
+      <div class="sport-emoji">
+        <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Drop shadow -->
+          <ellipse cx="52" cy="92" rx="30" ry="5" fill="rgba(0,0,0,0.4)"/>
+          <!-- Striker body - red disc with thickness illusion -->
+          <ellipse cx="50" cy="56" rx="38" ry="8" fill="#aa1a1a"/>
+          <circle cx="50" cy="50" r="38" fill="#e02020"/>
+          <!-- Rim highlight -->
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#ff6060" stroke-width="2" opacity="0.5"/>
+          <!-- White inner ring -->
+          <circle cx="50" cy="50" r="26" fill="white" stroke="#ddd" stroke-width="1.5"/>
+          <!-- Red center dot -->
+          <circle cx="50" cy="50" r="10" fill="#cc1a1a" stroke="#aa0a0a" stroke-width="1"/>
+          <!-- Gloss highlight -->
+          <ellipse cx="36" cy="34" rx="12" ry="7" fill="rgba(255,255,255,0.45)" transform="rotate(-25 36 34)"/>
+          <!-- Small specular -->
+          <ellipse cx="30" cy="30" rx="4" ry="2.5" fill="rgba(255,255,255,0.6)" transform="rotate(-25 30 30)"/>
+        </svg>
+      </div>
+      <div class="sport-info">
+        <div class="sport-name">Carrom</div>
+        <div class="sport-sub">Singles & Doubles</div>
+      </div>
+    </a>
+
+    <a class="sport-link" href="https://forms.gle/rA2Jy3w2BkvNYbEX7">
+      <div class="sport-emoji">♛ </div>
+      <div class="sport-info">
+        <div class="sport-name">Chess</div>
+        <div class="sport-sub">Classical format</div>
+      </div>
+    </a>
+
+    <a class="sport-link" href="https://forms.gle/vQ54GUmTtUivvdX48">
+      <div class="sport-emoji">⚽</div>
+      <div class="sport-info">
+        <div class="sport-name">Football</div>
+        <div class="sport-sub">Team registration</div>
+      </div>
+    </a>
+
+    <a class="sport-link" href="https://forms.gle/mn7v28Makg9y4YDs8">
+      <div class="sport-emoji">🏓</div>
+      <div class="sport-info">
+        <div class="sport-name">Table Tennis</div>
+        <div class="sport-sub">Singles & Doubles</div>
+      </div>
+    </a>
+
+    <a class="sport-link" href="https://forms.gle/Kx7dQzQNdXoCecxp6">
+      <div class="sport-emoji">🏐</div>
+      <div class="sport-info">
+        <div class="sport-name">Volleyball</div>
+        <div class="sport-sub">Team registration</div>
+      </div>
+    </a>
+
+    
+
+    
+
+    <div class="esports-divider">
+      <span>⚡ For the first time in FPL history, we're bringing Esports to the arena ⚡</span>
+    </div>
+
+    <a class="sport-link" href="https://forms.gle/pkeVh4sgA4oP5oqg7">
+      <div class="sport-info">
+        <div class="sport-name">Clash Royale</div>
+        <div class="sport-sub">E-Sports · 1v1 Format</div>
+      </div>
+      <span class="new-tag">NEW</span>
+    </a>
+
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="section-label" style="animation-delay: 0.85s;">Contacts</div>
+  <div class="contacts-grid">
+    <div class="contact-row">
+      <div>
+        <div class="contact-name">Nachiket Garg</div>
+        <div class="contact-role">Sports Secretary </div>
+      </div>
+      <div class="contact-placeholder">+91 97694 71605</div>
+    </div>
+
+    <div class="contact-row">
+      <div>
+        <div class="contact-name">Himnish Taneja</div>
+        <div class="contact-role">Executive Committee, Sports Union  (2024 batch)</div>
+      </div>
+      <div class="contact-placeholder">+91 70428 13111</div>
+    </div>
+
+    <div class="section-label" style="animation-delay: 0.85s;">For any queries regarding registration kindly contact</div>
+
+    <div class="contact-row">
+      <div>
+        <div class="contact-name">Viren Suthar</div>
+        <div class="contact-role">Executive Committee, Sports Union  (2025 batch)</div>
+      </div>
+      <div class="contact-placeholder">+91 9820596073</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-org">Organized by</div>
+    <div class="footer-name">Sports Union Executive Committee</div>
+    <div style="font-size:16px; color: var(--muted); margin-top:6px; letter-spacing:1px;">BITS Pilani · Pilani Campus</div><br>
+    <div style="font-size:10px; color: var(--muted); margin-top:6px; letter-spacing:1px;">Made with ❤️ by Viren Suthar</div>
+
+</div>
+</body>
+</html>
