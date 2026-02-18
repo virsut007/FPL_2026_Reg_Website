@@ -15,8 +15,3 @@ Customization
 All visual variables are defined as CSS custom properties at the top of the <style> block and can be easily changed:
 Registration form links (Google Forms URLs) are embedded directly in each <a> tag and can be swapped out as needed.
 
-Stack
-LayerTechnologyMarkupHTML5StylingVanilla CSS3 (custom properties, grid, clip-path, keyframes)FontsGoogle Fonts CDN — Bebas Neue, Barlow Condensed, BarlowScriptingNoneDependenciesNone (zero npm, zero bundler)
-
-Visual Effects
-EffectImplementationBackground gridbody::before — repeating linear-gradient at 60px intervalsTop glowbody::after — radial-gradient ellipse, fixed positionLogo pulse@keyframes pulse-ring cycling box-shadow opacityStaggered entrance@keyframes fadeUp / fadeDown with incremental animation-delay per sectionGold text gradient-webkit-background-clip: text + linear-gradient on <h1>Chevron CTA.sport-link::after pseudo-element, revealed on :hover via opacity transitionYear badge skewclip-path: polygon(...) for parallelogram shape
