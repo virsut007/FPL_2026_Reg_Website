@@ -32,7 +32,7 @@
     position: relative;
   }
 
-  /* Animated background grid */
+  /* animated background grid */
   body::before {
   content: '';
   position: fixed;
@@ -45,7 +45,7 @@
   z-index: 0;
 }
 
-  /* Top glow */
+  /* top glow */
   body::after {
     content: '';
     position: fixed;
@@ -67,7 +67,7 @@
     z-index: 1;
   }
 
-  /* ---- HEADER ---- */
+  /* header */
   .header {
     text-align: center;
     margin-bottom: 40px;
@@ -159,7 +159,7 @@
     clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
   }
 
-  /* ---- DESCRIPTION CARD ---- */
+  /* description card */
   .desc-card {
     background: linear-gradient(135deg, rgba(255,215,0,0.06) 0%, rgba(255,215,0,0.02) 100%);
     border: 1px solid rgba(255,215,0,0.15);
@@ -176,7 +176,7 @@
 
   .desc-card strong { color: var(--gold); font-weight: 600; }
 
-  /* ---- INFO STRIP ---- */
+  /* info strip */
   .info-strip {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -226,7 +226,7 @@
   .info-tile.urgent .tile-label { color: rgba(255,100,100,0.7); }
   .info-tile.urgent .tile-value { color: #ff9090; }
 
-  /* ---- SECTION LABEL ---- */
+  /* section label */
   .section-label {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 16px;
@@ -248,7 +248,7 @@
     background: var(--border);
   }
 
-  /* ---- SPORT LINKS ---- */
+  /* sport links */
   .links-stack {
     display: flex;
     flex-direction: column;
@@ -366,7 +366,7 @@
     animation: fadeUp 0.6s 0.78s ease both;
   }
 
-  /* ---- CONTACTS ---- */
+  /* contacts */
   .contacts-grid {
     display: flex;
     flex-direction: column;
@@ -418,7 +418,7 @@
     font-style: italic;
   }
 
-  /* ---- FOOTER ---- */
+  /* footer */
   .footer {
     text-align: center;
     margin-top: 50px;
@@ -444,7 +444,7 @@
     letter-spacing: 1px;
   }
 
-  /* ---- ANIMATIONS ---- */
+  /* animations */
   @keyframes fadeDown {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -455,7 +455,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ---- SCROLLBAR ---- */
+  /* scrollba */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--darker); }
   ::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.2); border-radius: 3px; }
@@ -464,7 +464,7 @@
 <body>
 <div class="container">
 
-  <!-- HEADER -->
+  <!-- header -->
   <div class="header">
     <div class="logo-ring">
       
@@ -477,7 +477,7 @@
     <div class="year-badge">FPL 2026</div>
   </div>
 
-  <!-- DESCRIPTION -->
+  <!-- main desc  -->
   <div class="desc-card">
     Welcome to <strong>Freshers' Premier League</strong> — the most anticipated sporting debut for the Class of 2025. 
     Represent your wing, forge rivalries, and make your mark on campus. 
@@ -500,7 +500,7 @@
   Registration is completely free for everyone across all sporting events!!
 </div>
 
-  <!-- INFO TILES -->
+  <!-- info titles -->
   <div class="info-strip">
     <div class="info-tile">
       <div class="tile-label">📅 Event Dates</div>
@@ -516,7 +516,7 @@
     </div>
   </div>
 
-  <!-- REGISTRATION LINKS -->
+  <!-- reg links -->
   <div class="section-label">Register Now</div>
   <div class="links-stack">
 
@@ -547,20 +547,20 @@
     <a class="sport-link" href="https://forms.gle/4pNPR46QSR1ZruZV9" target="_blank" rel="noopener">
       <div class="sport-emoji">
         <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Drop shadow -->
+          <!-- drop shadow -->
           <ellipse cx="52" cy="92" rx="30" ry="5" fill="rgba(0,0,0,0.4)"/>
-          <!-- Striker body - red disc with thickness illusion -->
+          <!-- striker body - red disc with thickness illusion -->
           <ellipse cx="50" cy="56" rx="38" ry="8" fill="#aa1a1a"/>
           <circle cx="50" cy="50" r="38" fill="#e02020"/>
-          <!-- Rim highlight -->
+          <!-- rim highlight -->
           <circle cx="50" cy="50" r="38" fill="none" stroke="#ff6060" stroke-width="2" opacity="0.5"/>
-          <!-- White inner ring -->
+          <!-- white inner ring -->
           <circle cx="50" cy="50" r="26" fill="white" stroke="#ddd" stroke-width="1.5"/>
-          <!-- Red center dot -->
+          <!-- red center dot -->
           <circle cx="50" cy="50" r="10" fill="#cc1a1a" stroke="#aa0a0a" stroke-width="1"/>
-          <!-- Gloss highlight -->
+          <!-- gloss highlight -->
           <ellipse cx="36" cy="34" rx="12" ry="7" fill="rgba(255,255,255,0.45)" transform="rotate(-25 36 34)"/>
-          <!-- Small specular -->
+          <!-- small specular -->
           <ellipse cx="30" cy="30" rx="4" ry="2.5" fill="rgba(255,255,255,0.6)" transform="rotate(-25 30 30)"/>
         </svg>
       </div>
@@ -621,10 +621,18 @@
 
   </div>
 
-  <!-- CONTACTS -->
+  <!-- contacts -->
    <div class="section-label" style="animation-delay: 0.85s;">For any queries regarding registration kindly contact</div>
    <div class="contacts-grid">
 
+     <div class="contact-row">
+      <div>
+        <div class="contact-name">Viren Suthar</div>
+        <div class="contact-role">Executive Committee, Sports Union  (2025 batch)</div>
+      </div>
+      <div class="contact-number">+91 9820596073</div>
+    </div>
+     
      <div class="contact-row">
       <div>
         <div class="contact-name">Malhar Patwardhan</div>
@@ -641,13 +649,7 @@
       <div class="contact-number">+91 70428 13111</div>
     </div>
    
-   <div class="contact-row">
-      <div>
-        <div class="contact-name">Viren Suthar</div>
-        <div class="contact-role">Executive Committee, Sports Union  (2025 batch)</div>
-      </div>
-      <div class="contact-number">+91 9820596073</div>
-    </div>
+   
    </div>
 
 
@@ -688,7 +690,7 @@
 
   </div>
 
-  <!-- FOOTER -->
+  <!-- footer -->
   <div class="footer">
     <div class="footer-org">Organized by</div>
     <div class="footer-name">Sports Union Executive Committee</div>
